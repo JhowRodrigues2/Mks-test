@@ -5,7 +5,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Montserrat', sans-serif;
   }
-
+html,body{
+  height: 100%;
+ 
+  
+}body{
+  display: flex;
+  flex-direction: column;
+  
+}
 `;
 
 export default GlobalStyle;

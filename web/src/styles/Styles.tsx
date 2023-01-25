@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderArea = styled.div`
   background-color: #0f52ba;
-  height: 101px;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +42,6 @@ export const ShoppingCartArea = styled.button`
   align-items: center;
   justify-content: space-around;
   cursor: pointer;
-
   span {
     font-weight: 700;
     font-size: 18px;
@@ -51,16 +50,49 @@ export const ShoppingCartArea = styled.button`
   }
 `;
 
+export const ContentArea = styled.div`
+  width: 100%;
+  min-height: 85vh;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+`;
+
+export const ContainerArea = styled.div`
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-columns: 215px 215px 215px 215px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const ContainerItem = styled.div`
+  background-color: antiquewhite;
+  width: 217px;
+  height: 285px;
+  background: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
+  border-radius: 8px;
+  @media (max-width: 768px) {
+    height: 265px;
+  }
+`;
 export const FooterArea = styled.div`
-  height: 34px;
+  flex-shrink: 0;
+  height: 5vh;
   background: #eeeeee;
   font-weight: 500;
   font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
   min-width: 100%;
-  bottom: 0;
-  left: 0;
 `;

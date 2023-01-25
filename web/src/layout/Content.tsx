@@ -1,3 +1,10 @@
+import { Container } from "../components/Container";
+import { ContentArea } from "../styles/Styles";
+
 export const Content = () => {
-  return <div>Content</div>;
+  return (
+    <ContentArea>
+      <Container />
+    </ContentArea>
+  );
 };
