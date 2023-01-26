@@ -62,10 +62,9 @@ export const ContentArea = styled.div`
 
 export const ContainerArea = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem;
   grid-template-columns: 215px 215px 215px 215px;
-
   @media (max-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -81,6 +80,48 @@ export const ContainerItem = styled.div`
   background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  img {
+    width: 217px;
+    height: 138px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  span {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+  h1 {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 16px;
+    margin-top: 16px;
+    color: rgba(44, 44, 44, 1);
+  }
+  span p {
+    padding: 6px 4px;
+    width: 64px;
+    height: fit-content;
+    background: #373737;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 1);
+    line-height: 15px;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 0 0.5rem;
+  }
+
   @media (max-width: 768px) {
     height: 265px;
   }
@@ -95,4 +136,26 @@ export const FooterArea = styled.div`
   align-items: center;
   justify-content: center;
   min-width: 100%;
+`;
+export const Button = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #0f52ba;
+  width: 100%;
+  border-radius: 0px 0px 8px 8px;
+  margin-top: 12px;
+  height: 32px;
+  border: none;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  cursor: pointer;
+
+  img {
+    width: 12px;
+    height: 13.5px;
+  }
 `;

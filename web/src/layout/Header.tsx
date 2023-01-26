@@ -1,5 +1,5 @@
 import { HeaderArea, Logo, ShoppingCartArea } from "../styles/Styles";
-import { FaShoppingCart } from "react-icons/all";
+import ShopCart from "../assets/ShopCart.svg";
 export const Header = () => {
   return (
     <HeaderArea>
@@ -8,7 +8,7 @@ export const Header = () => {
         <p>Sistemas</p>
       </Logo>
       <ShoppingCartArea>
-        <FaShoppingCart fontSize={17} />
+        <img src={ShopCart} alt="" />
         <span>0</span>
       </ShoppingCartArea>
     </HeaderArea>
