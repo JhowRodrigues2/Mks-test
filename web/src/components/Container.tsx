@@ -4,31 +4,37 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { Button, ContainerArea, ContainerItem } from "../styles/Styles";
 import Swal from "sweetalert2";
 import Bag from "../assets/Bag.svg";
-import { useDispatch, useSelector } from "react-redux";
-import rootReducer from "../redux/root-reducer";
-import { addProductToCart } from "../redux/Cart/action";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/Cart/slice";
 import { ProductsProps } from "../types/types";
+import Loader from "../layout/Loader";
 
 export const Container = () => {
   const [products, setProducts] = useState<ProductsProps[] | [] | null>(null);
-  const [t, setT] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+
       const req = await fetch(
         "https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC"
       );
       const res = await req.json();
+      setIsLoading(false);
+
       setProducts(res.products);
     };
     fetchData();
   }, []);
 
+  if (!products && isLoading) return <Loader />;
+
   const dispatch = useDispatch();
 
   const handleGetProductClick = (product: ProductsProps) => {
-    dispatch(addProductToCart(product));
-    console.log(addProductToCart(product));
+    dispatch(addProduct(product));
+    console.log(addProduct(product));
   };
 
   return (

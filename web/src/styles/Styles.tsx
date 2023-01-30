@@ -170,6 +170,7 @@ export const CheckoutArea = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+
   animation: fromLeft 0.5s backwards;
 
   @keyframes fromLeft {
@@ -286,4 +287,32 @@ export const RemoveItemButton = styled.button`
   color: #fff;
   width: 18px;
   height: 18px;
+`;
+export const CheckoutTotal = styled.div`
+  display: flex;
+  font-weight: 700;
+  font-size: 28px;
+  justify-content: space-between;
+  padding: 0px 47px 0px 47px;
+`;
+
+export const Loading = styled.div`
+  animation: rotate 2s linear infinite;
+  position: absolute;
+  left: 50%;
+  margin-top: 40px;
+  font-size: 50px;
+  margin-left: -25px;
+  .loader {
+    width: 120px;
+    height: 120px;
+  }
+  @keyframes rotate {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
 `;

@@ -4,23 +4,27 @@ import {
   CheckoutItem,
   CheckoutItemQuantityButton,
   CheckoutTopArea,
+  CheckoutTotal,
   RemoveItemButton,
 } from "../styles/Styles";
 import { useSelector, useDispatch } from "react-redux";
-import rootReducer from "../redux/root-reducer";
 import { CheckoutProps, ProductsProps } from "../types/types";
 import {
-  removeProductFromCart,
+  removeProduct,
   increaseProductQuantity,
   decreaseProductQuantity,
-} from "../redux/Cart/action";
+} from "../redux/Cart/slice";
+import { selectProductsTotalPrice } from "../redux/Cart/cart.selector";
 
 const Checkout = ({ displayStyle }: CheckoutProps) => {
   const { products } = useSelector((rootReducer) => rootReducer.carReducer);
+
+  const productsTotalPrice = useSelector(selectProductsTotalPrice);
+
   const dispatch = useDispatch();
 
   const handleRemoveClick = (productID: number) => {
-    dispatch(removeProductFromCart(productID));
+    dispatch(removeProduct(productID));
   };
   const handleIncreaseClick = (productID: number) => {
     dispatch(increaseProductQuantity(productID));
@@ -51,7 +55,10 @@ const Checkout = ({ displayStyle }: CheckoutProps) => {
           </RemoveItemButton>
         </CheckoutItem>
       ))}
-
+      <CheckoutTotal>
+        <p>Total:</p>
+        <p>R${productsTotalPrice}</p>
+      </CheckoutTotal>
       <CheckoutButton> Finalizar Compra</CheckoutButton>
     </CheckoutArea>
   );

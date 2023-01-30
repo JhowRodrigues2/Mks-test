@@ -4,6 +4,7 @@ import Checkout from "../components/Checkout";
 import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import rootReducer from "../redux/root-reducer";
+import { selectProductsCount } from "../redux/Cart/cart.selector";
 
 export const Header = () => {
   const [checkoutDisplay, setCheckoutDisplay] = useState("none");
@@ -12,13 +13,9 @@ export const Header = () => {
   };
   const { products } = useSelector((rootReducer) => rootReducer.carReducer);
 
+  const productsCount = useSelector(selectProductsCount);
   const dispatch = useDispatch();
-  const productsCount = useMemo(() => {
-    return products.reduce(
-      (acc: number, curr: number) => acc + curr.quantity,
-      0
-    );
-  }, [products]);
+
   return (
     <HeaderArea>
       <Checkout displayStyle={checkoutDisplay} />
