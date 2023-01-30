@@ -159,3 +159,113 @@ export const Button = styled.div`
     height: 13.5px;
   }
 `;
+export const CheckoutArea = styled.div`
+  background: #0f52ba;
+  width: 486px;
+  height: 100vh;
+  box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
+  display: ${(props) => props.color};
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  animation: fromLeft 0.5s backwards;
+
+  @keyframes fromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(130px);
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @media (max-width: 768px) {
+    width: 330px;
+  }
+`;
+export const CheckoutButton = styled.div`
+  width: 100%;
+  height: 97px;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const CheckoutTopArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 36px 22px 0px 47px;
+  h1 {
+    width: 180px;
+    height: 56px;
+    color: #ffffff;
+    font-size: 27px;
+    line-height: 33px;
+  }
+  button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #000000;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 28px;
+    cursor: pointer;
+  }
+`;
+export const CheckoutItem = styled.div`
+  min-width: 113px;
+  height: 95px;
+  background: #ffffff;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 0px 60px 0px 47px;
+  border-radius: 8px;
+  color: #2c2c2c;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    width: 46px;
+    height: 57px;
+  }
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+  }
+`;
+
+export const CheckoutItemQuantityButton = styled.div`
+  display: flex;
+  border: 1px solid lightgray;
+  padding: 2px 0;
+  border-radius: 4px;
+  width: 65px;
+  height: 19px;
+  button {
+    font-size: 12px;
+    width: 1.8rem;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .quantity-value {
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    padding: 0 0.75rem;
+    font-size: 12px;
+    font-weight: 600;
+
+    align-self: center;
+  }
+`;

@@ -4,16 +4,15 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { Button, ContainerArea, ContainerItem } from "../styles/Styles";
 import Swal from "sweetalert2";
 import Bag from "../assets/Bag.svg";
-type ProductsProps = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  photo: string;
-};
+import { useDispatch, useSelector } from "react-redux";
+import rootReducer from "../redux/root-reducer";
+import { addProductToCart } from "../redux/Cart/action";
+import { ProductsProps } from "../types/types";
 
 export const Container = () => {
   const [products, setProducts] = useState<ProductsProps[] | [] | null>(null);
+  const [t, setT] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       const req = await fetch(
@@ -24,6 +23,14 @@ export const Container = () => {
     };
     fetchData();
   }, []);
+
+  const dispatch = useDispatch();
+
+  const handleGetProductClick = (product: ProductsProps) => {
+    dispatch(addProductToCart(product));
+    console.log(addProductToCart(product));
+  };
+
   return (
     <ContainerArea>
       {products &&
@@ -51,7 +58,8 @@ export const Container = () => {
                 <p>R${Math.round(product.price)}</p>
               </span>
               <p>Redesigned from scratch and completely revised.</p>
-              <Button>
+
+              <Button onClick={() => handleGetProductClick(product)}>
                 <img src={Bag} alt="" />
                 COMPRAR
               </Button>
