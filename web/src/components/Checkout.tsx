@@ -9,7 +9,11 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import rootReducer from "../redux/root-reducer";
 import { CheckoutProps, ProductsProps } from "../types/types";
-import { removeProductFromCart } from "../redux/Cart/action";
+import {
+  removeProductFromCart,
+  increaseProductQuantity,
+  decreaseProductQuantity,
+} from "../redux/Cart/action";
 
 const Checkout = ({ displayStyle }: CheckoutProps) => {
   const { products } = useSelector((rootReducer) => rootReducer.carReducer);
@@ -17,6 +21,13 @@ const Checkout = ({ displayStyle }: CheckoutProps) => {
 
   const handleRemoveClick = (productID: number) => {
     dispatch(removeProductFromCart(productID));
+  };
+  const handleIncreaseClick = (productID: number) => {
+    dispatch(increaseProductQuantity(productID));
+  };
+
+  const handleDecreaseClick = (productID: number) => {
+    dispatch(decreaseProductQuantity(productID));
   };
   return (
     <CheckoutArea color={displayStyle}>
@@ -30,9 +41,9 @@ const Checkout = ({ displayStyle }: CheckoutProps) => {
           <img src={itens.photo} alt="" />
           <span>{itens.name}</span>
           <CheckoutItemQuantityButton>
-            <button>-</button>
+            <button onClick={() => handleDecreaseClick(itens.id)}>-</button>
             <div className="quantity-value">{itens.quantity}</div>
-            <button>+</button>
+            <button onClick={() => handleIncreaseClick(itens.id)}>+</button>
           </CheckoutItemQuantityButton>
           <p>R${Math.round(itens.price)}</p>
           <RemoveItemButton onClick={() => handleRemoveClick(itens.id)}>
