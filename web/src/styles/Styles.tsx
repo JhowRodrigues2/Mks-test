@@ -221,6 +221,7 @@ export const CheckoutTopArea = styled.div`
   }
 `;
 export const CheckoutItem = styled.div`
+  position: relative;
   min-width: 113px;
   height: 95px;
   background: #ffffff;
@@ -268,4 +269,21 @@ export const CheckoutItemQuantityButton = styled.div`
 
     align-self: center;
   }
+`;
+
+export const RemoveItemButton = styled.button`
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: #000000;
+  font-weight: 600;
+  cursor: pointer;
+  right: -8px;
+  top: -8px;
+  color: #fff;
+  width: 18px;
+  height: 18px;
 `;

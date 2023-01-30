@@ -5,3 +5,8 @@ export const addProductToCart = (payload: PayloadAction) => ({
   type: CartActionTypes.ADD_PRODUCT,
   payload,
 });
+
+export const removeProductFromCart = (payload: PayloadAction) => ({
+  type: CartActionTypes.REMOVE_PRODUCT,
+  payload,
+});
