@@ -25,7 +25,7 @@ export const Logo = styled.div`
     line-height: 19px;
   }
   p {
-    margin-top: 1rem;
+    margin-top: 16px;
     font-weight: 300;
     font-size: 20px;
     line-height: 19px;
@@ -94,11 +94,11 @@ export const ContainerItem = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 0.5rem;
+    padding: 0 8px;
   }
   h1 {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 16px;
     margin-top: 16px;
     color: rgba(44, 44, 44, 1);
@@ -119,7 +119,7 @@ export const ContainerItem = styled.div`
     font-weight: 300;
     font-size: 12px;
     line-height: 12px;
-    padding: 0 0.5rem;
+    padding: 0 8px;
   }
 
   @media (max-width: 768px) {
@@ -141,7 +141,7 @@ export const Button = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 1rem;
   background: #0f52ba;
   width: 100%;
   border-radius: 0px 0px 8px 8px;
@@ -170,6 +170,7 @@ export const CheckoutArea = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+  overflow: auto;
 
   animation: fromLeft 0.5s backwards;
 
@@ -184,11 +185,14 @@ export const CheckoutArea = styled.div`
     }
   }
   @media (max-width: 768px) {
-    width: 330px;
+    width: 90%;
+    height: 100vh;
+    button {
+      color: #fff;
+    }
   }
 `;
 export const CheckoutButton = styled.div`
-  width: 100%;
   height: 97px;
   background: #000000;
   color: #ffffff;
@@ -198,11 +202,17 @@ export const CheckoutButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 export const CheckoutTopArea = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 36px 22px 0px 47px;
+  align-items: center;
+  padding-bottom: 12px;
   h1 {
     width: 180px;
     height: 56px;
@@ -219,8 +229,27 @@ export const CheckoutTopArea = styled.div`
     font-weight: 400;
     font-size: 28px;
     cursor: pointer;
+    border: none;
+  }
+  @media (max-width: 768px) {
+    button {
+      width: 46px;
+      height: 46px;
+      color: #0f52ba;
+      border: none;
+    }
   }
 `;
+export const CheckoutItemArea = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  gap: 1.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+`;
+
 export const CheckoutItem = styled.div`
   position: relative;
   min-width: 113px;
@@ -245,6 +274,44 @@ export const CheckoutItem = styled.div`
     font-size: 14px;
     line-height: 17px;
   }
+
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    img {
+      width: 80px;
+      height: 95px;
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+`;
+export const PriceArea = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  @media (max-width: 768px) {
+    padding: 21px;
+    p {
+      width: 84px;
+      height: 35px;
+      background: #373737;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+    }
+  }
 `;
 
 export const CheckoutItemQuantityButton = styled.div`
@@ -267,8 +334,15 @@ export const CheckoutItemQuantityButton = styled.div`
     padding: 0 0.75rem;
     font-size: 12px;
     font-weight: 600;
-
     align-self: center;
+  }
+  @media (max-width: 768px) {
+    width: 97px;
+    height: 34px;
+  }
+  button {
+    color: #000000;
+    font-weight: 400;
   }
 `;
 
@@ -284,16 +358,39 @@ export const RemoveItemButton = styled.button`
   cursor: pointer;
   right: -8px;
   top: -8px;
-  color: #fff;
   width: 18px;
   height: 18px;
+  color: #fff;
+
+  @media (max-width: 768px) {
+    background: #fff;
+    right: 0;
+    top: 0;
+    width: 21px;
+    height: 41px;
+    border-radius: 8px;
+    p {
+      color: #000000;
+      font-size: 42px;
+      font-weight: 400;
+      margin-right: 14px;
+    }
+  }
 `;
 export const CheckoutTotal = styled.div`
   display: flex;
   font-weight: 700;
   font-size: 28px;
   justify-content: space-between;
-  padding: 0px 47px 0px 47px;
+  padding: 0px 47px 42px 47px;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    align-items: center;
+    padding: 0px 28px 0px 28px;
+    height: 98px;
+    font-size: 20px;
+  }
 `;
 
 export const Loading = styled.div`

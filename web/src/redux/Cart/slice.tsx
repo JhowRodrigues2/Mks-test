@@ -3,9 +3,11 @@ import { ProductsProps } from "../../types/types";
 
 type CartState = {
   products: ProductsProps[];
+  toogleMenu: string;
 };
 const initialState: CartState = {
   products: [],
+  toogleMenu: "none",
 };
 
 const cartSlice = createSlice({
@@ -51,6 +53,9 @@ const cartSlice = createSlice({
         (product) => product.id != action.payload
       );
     },
+    setToggleMenu: (state, action) => {
+      return { ...state, toogleMenu: action.payload };
+    },
   },
 });
 export const {
@@ -58,6 +63,7 @@ export const {
   increaseProductQuantity,
   decreaseProductQuantity,
   removeProduct,
+  setToggleMenu,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

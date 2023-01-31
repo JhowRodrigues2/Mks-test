@@ -1,24 +1,24 @@
 import { HeaderArea, Logo, ShoppingCartArea } from "../styles/Styles";
 import ShopCart from "../assets/ShopCart.svg";
 import Checkout from "../components/Checkout";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import rootReducer from "../redux/root-reducer";
 import { selectProductsCount } from "../redux/Cart/cart.selector";
-
+import { setToggleMenu } from "../redux/Cart/slice";
 export const Header = () => {
-  const [checkoutDisplay, setCheckoutDisplay] = useState("none");
+  const [checkoutDisplayFlex] = useState("flex");
+
   const handleClick = () => {
-    setCheckoutDisplay("flex");
+    dispatch(setToggleMenu(checkoutDisplayFlex));
   };
-  const { products } = useSelector((rootReducer) => rootReducer.carReducer);
+  const { toogleMenu } = useSelector((rootReducer) => rootReducer.carReducer);
 
   const productsCount = useSelector(selectProductsCount);
   const dispatch = useDispatch();
-
   return (
     <HeaderArea>
-      <Checkout displayStyle={checkoutDisplay} />
+      <Checkout displayStyle={toogleMenu} />
       <Logo>
         <h1>MKS </h1>
         <p>Sistemas</p>
