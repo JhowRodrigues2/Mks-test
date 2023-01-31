@@ -34,7 +34,6 @@ export const Container = () => {
 
   const handleGetProductClick = (product: ProductsProps) => {
     dispatch(addProduct(product));
-    console.log(addProduct(product));
   };
 
   return (
