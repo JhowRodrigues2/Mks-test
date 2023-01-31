@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-import "react-loading-skeleton/dist/skeleton.css";
 import { Button, ContainerArea, ContainerItem } from "../styles/Styles";
 import Swal from "sweetalert2";
 import Bag from "../assets/Bag.svg";
