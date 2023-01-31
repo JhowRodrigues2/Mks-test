@@ -21,7 +21,9 @@ import { selectProductsTotalPrice } from "../redux/Cart/cart.selector";
 import { useState } from "react";
 
 const Checkout = ({ displayStyle }: CheckoutProps) => {
-  const { products } = useSelector((rootReducer) => rootReducer.carReducer);
+  const { products } = useSelector(
+    (rootReducer: any) => rootReducer.carReducer
+  );
   const productsTotalPrice = useSelector(selectProductsTotalPrice);
 
   const [checkoutDisplayNone] = useState("none");
@@ -40,7 +42,9 @@ const Checkout = ({ displayStyle }: CheckoutProps) => {
   const handletoggleMenu = () => {
     dispatch(setToggleMenu(checkoutDisplayNone));
   };
-  const { toogleMenu } = useSelector((rootReducer) => rootReducer.carReducer);
+  const { toogleMenu } = useSelector(
+    (rootReducer: any) => rootReducer.carReducer
+  );
 
   return (
     <CheckoutArea color={toogleMenu}>

@@ -12,7 +12,9 @@ export const Header = () => {
   const handleClick = () => {
     dispatch(setToggleMenu(checkoutDisplayFlex));
   };
-  const { toogleMenu } = useSelector((rootReducer) => rootReducer.carReducer);
+  const { toogleMenu } = useSelector(
+    (rootReducer: any) => rootReducer.carReducer
+  );
 
   const productsCount = useSelector(selectProductsCount);
   const dispatch = useDispatch();

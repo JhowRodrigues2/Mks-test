@@ -1,12 +1,12 @@
-export const selectProductsCount = (rootReducer) => {
+export const selectProductsCount = (rootReducer: any) => {
   return rootReducer.carReducer.products.reduce(
-    (acc, curr) => acc + curr.quantity,
+    (acc: any, curr: any) => acc + curr.quantity,
     0
   );
 };
-export const selectProductsTotalPrice = (rootReducer) => {
+export const selectProductsTotalPrice = (rootReducer: any) => {
   return rootReducer.carReducer.products.reduce(
-    (acc, curr) => acc + curr.price * curr.quantity,
+    (acc: any, curr: any) => acc + curr.price * curr.quantity,
     0
   );
 };
